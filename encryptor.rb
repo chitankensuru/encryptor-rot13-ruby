@@ -9,7 +9,11 @@ class Encryptor
      'y' => 'l', 'z' => 'm'}
   end
 
-  def encrypt(letter)
+  def encrypt_letter(letter)
     cipher[letter.downcase]
+  end
+
+  def encrypt(string)
+    string.split("").each_with_object("") { |letter, str| str << encrypt_letter(letter) }
   end
 end
