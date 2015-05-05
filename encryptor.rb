@@ -13,7 +13,15 @@ class Encryptor
     cipher[letter.downcase]
   end
 
+  def decrypt_letter(letter)
+    cipher.key(letter)
+  end
+
   def encrypt(string)
     string.split("").each_with_object("") { |letter, str| str << encrypt_letter(letter) }
+  end
+
+  def decrypt(string)
+    string.split("").each_with_object("") { |letter, str| str << decrypt_letter(letter) }
   end
 end
